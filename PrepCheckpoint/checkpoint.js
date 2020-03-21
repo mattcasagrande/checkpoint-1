@@ -8,13 +8,26 @@ function sumArray(array, n) {
 // ejemplo:
 // [2,5,7,10,11,15,20] y 13  // verdadero     2+11 suman 13
 // [2,5,7,10,11,15,20] y 14  // falso
+for (let i = 0; i < array.length; i++) {
+  for ( j = 1 ; j < array.length ; j++) {
+    if (array[i] + array[j] === n) {return true}
+  }  if (array[i] + array[j] !== n) { return false}
 
+  } 
 };
 function menorMayor(numeros) {
 // Escribi una función llamada menorMayor que tome como entrada un arreglo de números y devuelva un arreglo 
 // que contenga el menor número en la posición cero y el mayor número en la posición 1.
 // el arreglo numeros tendra por lo menos dos numeros siempre;
 // menorMayor([4, 6, 1, 7, 15]) ==> [1, 15]
+var mayor = numeros[0];
+var menor = numeros[0];
+
+for (let i = 1; i < numeros.length; i++) {
+  if (mayor < numeros[i]) { mayor = numeros [i]}
+  if (menor > numeros[i]) { menor = numeros[i]}
+  
+} return [menor , mayor]
 
 }
 
@@ -24,7 +37,12 @@ function stringMasLarga(strings) {
   // si hay dos strings del mismo tamanio devolve la que este primero en el arreglo (menor indice);
   // stringMasLarga(['hi', 'hello', 'ni hao', 'guten tag']); // returns 'guten tag'
   // stringMasLarga(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
-
+  var maslargo = strings[0]
+for (let i = 1; i < strings.length; i++) {
+  if (maslargo.length < strings[i].length) {
+    maslargo = strings[i] }
+  
+} return maslargo
 }
 
 function aplastarArreglo(array) {
@@ -34,10 +52,17 @@ function aplastarArreglo(array) {
   // aplastarArreglo([[1,2,3,4], [5,6], [7,8,9]])
   // => [1, 2, 3, 4, 5, 6, 7, 8, 9]
   // pista: podes usar forEachs anidados;
-
+  return array.flat()
+  /*
+  var aplastado = [];
+array.foreach (function (elements){
+  elements.foreach (function (element){
+    aplastado.push(element)
+  })
+}) ; return aplastado*/
 }
 
-function pluck() { 
+function pluck(productos) { 
 // Escribi una función pluck en el prototipo de Arrays,
 // que recibe el nombre de una propiedad de un objeto.
 // La función va a devolver un nuevo arreglo con solo los
@@ -45,9 +70,20 @@ function pluck() {
 // var productos = [{ name: 'TV LCD', price: 100}, { name: 'Computadora', price: 500 }]
 // productos.pluck('name') // ['TV LCD', 'Computadora']
 // tip: es una buena oportunidad para usar map.
+Array.prototype.pluck = function (propiedad) {
+  var nuevo = [];
+  for (let i = 0; i < this.length; i++) {
+  nuevo.push (this[i][propiedad])
+  
+   } return nuevo
+};
 
 
 }
+
+
+
+
 
 // =======================================================================
 
@@ -58,10 +94,11 @@ function pluck() {
 //     hobbies: [],
 //     amigos: [
 //       { 
-//         nombre,
+//         nombre, 
 //       },
 //     ],
 //   }
+//var productos : [{ name: 'TV LCD', price: 100}, { name: 'Computadora', price: 500 }]
 // Podes encontrar el arreglo completo con el que vamos a testear en `checkpoint.test.js`
 
 function getFriends(personas, nombre) {
@@ -70,7 +107,21 @@ function getFriends(personas, nombre) {
   // getFriends(personas, 'Martin') => ['toni', 'Leo', 'Manu']
   // tips: podes usar la funcion pluck que hiciste antes!
 
-}
+    var friend = []
+    for (let i = 0; i < personas.length; i++) {
+      if (personas[i].nombre == nombre ) {
+          for (let j = 0; j < personas[i].amigos.length; j++) {
+            friend.push (personas[i].amigos[j].nombre)
+              
+          }  return friend
+          
+        }
+      
+  }
+  
+  
+  }
+
 
 function getPromedioEdad(personas) {
   // Escribe una función que devuelva el promedio de edad de las personas en el arreglo 'personas'

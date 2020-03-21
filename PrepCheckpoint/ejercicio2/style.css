@@ -1,0 +1,14 @@
+#bloque {
+    size: 200px;
+    height: 200px;
+    background-color: black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: black;
+    border-style: solid;
+    border-top: 1px;
+    border-bottom: 30px;
+    border-left: 1px;
+    border-right: 20px;
+    padding: 10px 5px;
+}

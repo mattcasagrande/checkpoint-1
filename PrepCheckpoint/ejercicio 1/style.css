@@ -1,0 +1,26 @@
+
+
+#contenedor {
+    width: 75%;
+    margin: auto;
+    
+    
+};
+ul { color: red;}
+li { 
+    font-size: 25px;
+    color: red;
+    
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+a {
+    color: blue;
+}
+a:visited {
+    color: blue;
+}
+
