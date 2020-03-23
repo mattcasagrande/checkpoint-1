@@ -62,7 +62,7 @@ array.foreach (function (elements){
 }) ; return aplastado*/
 }
 
-function pluck(productos) { 
+function pluck() { 
 // Escribi una función pluck en el prototipo de Arrays,
 // que recibe el nombre de una propiedad de un objeto.
 // La función va a devolver un nuevo arreglo con solo los
@@ -127,8 +127,14 @@ function getPromedioEdad(personas) {
   // Escribe una función que devuelva el promedio de edad de las personas en el arreglo 'personas'
   // tips: reduce!
   // iniciar el acc en 0! si no, por defecto cree que es un objeto!
+ 
+    var sumar = 0;
+    for (let i = 0; i < personas.length; i++) {
+      sumar = sumar + personas[i].edad;
+    }
+    return sumar / personas.length;
+  }
 
-}
 
 function getEstadisticas(personas) {
   // Escribe una funcion que devuelva un arreglo
@@ -155,7 +161,22 @@ function crearClasePersona() {
   // tip: Recuerden inicializar bien las propiedades que sean arreglos u objetos
   // usando el operador "||".
   // Esta funcion debe retonar la clase Persona.
-  
+  class Persona {
+    constructor (nombre, edad, hobbies,amigos){
+      this.nombre = nombre;
+      this.edad = edad;
+      this.hobbies = hobbies || "no tiene";
+      this.amigos = amigos || "no tiene";
+      
+    }
+    getFriends(){};
+    getEstadisticas(){};
+    getPromedioEdad(){};
+    addHobby(){};
+    addFriend(){};
+  }
+return Persona
+
 }
 
 

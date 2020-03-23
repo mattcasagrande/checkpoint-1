@@ -79,6 +79,7 @@ personas.prototype.pluck = function (nombre) {
     
      } return nuevo
   };*/
+  /*
   function getFriends(personas, nombre) {
     var friend = [];
     for (let i = 0; i < personas.length; i++) {
@@ -96,3 +97,8 @@ personas.prototype.pluck = function (nombre) {
   }
 console.log (getFriends(personas, "Emi"))
 console.log (getFriends(personas))
+*/
+console.log (personas[2].edad)
+var promedio = personas.reduce (function(acc,edad,index){ return (acc + personas[index].edad) / personas.length
+},0)
+console.log (promedio)
