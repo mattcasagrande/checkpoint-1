@@ -165,15 +165,15 @@ function crearClasePersona() {
     constructor (nombre, edad, hobbies,amigos){
       this.nombre = nombre;
       this.edad = edad;
-      this.hobbies = hobbies || "no tiene";
-      this.amigos = amigos || "no tiene";
+      this.hobbies = hobbies || [];
+      this.amigos = amigos || {} ;
       
     }
     getFriends(){};
     getEstadisticas(){};
     getPromedioEdad(){};
-    addHobby(){};
-    addFriend(){};
+    addHobby(hobbies){this.hobbies.push(hobbies)};
+    addFriend(amigos){this.amigos = {['nombre']:amigos}};
   }
 return Persona
 
